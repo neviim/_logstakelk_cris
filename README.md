@@ -37,7 +37,7 @@ docker-compose logs elk
 
 
 # referencias de alguns comandos uteis
-Contêineres:  docker container rm $(docker container ls -a -q)   
+Contêineres:  docker container rm -f $(docker container ls -a -q)   
 Imagens....:  docker image rm $(docker image ls -a -q)
 Volumes....:  docker volume rm $(docker volume ls -q)     
 Networks...:  docker network rm $(docker network ls -q)
