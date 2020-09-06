@@ -1,8 +1,5 @@
-# Build with:
-# docker-compose build elk
-
 # Run with:
-# docker-compose up
+# docker-compose up 
 
 elk:
   image: sebp/elk
