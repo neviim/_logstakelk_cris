@@ -48,8 +48,10 @@ sudo docker run -p 5601:5601 -p 9200:9200 -p 5044:5044 -it \
 docker-compose build elk
 
 #  Up, Down, Log
-docker-compose up -d
-docker-compose down
+docker-compose up elk
+docker-compose up elk -d
+
+docker-compose down elk
 docker-compose logs elk
 
 # Restartar serviços
