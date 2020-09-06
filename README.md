@@ -105,6 +105,12 @@ cd ~/producao/_logstakelk_cris/beats/logstash-7.9.1
 
 ./bin/logstash -f ../../src/confs/csv-aba_diario.conf
 ./bin/logstash -f ../../src/confs/csv-aba_expert.conf
+
+# Acresente um novo registro caso seja um arquivo.csv fixo
+# para ele dar sequencia na leitura de onde ele paro de ler.
+vim ../../data/aba_diario.csv
+vim ../../data/aba_expert.csv
+
 ```
 
 
