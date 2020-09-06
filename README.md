@@ -13,13 +13,26 @@ sudo upgrade
 sudo apt install curl vim tree git wget
 sudo apt install -qqy --no-install-recommends ca-certificates gosu tzdata openjdk-11-jdk-headless
 
-# criar o diretorio de producao
+# Criar o diretorio de producao
 mkdir producao
 cd producao
 git clone git@github.com:neviim/_logstakelk_cris.git
 
 cd _logstakelk_cris
+cat /proc/sys/vm/max_map_count
+sudo sysctl -w vm.max_map_count=262144
+
 sudo docker pull sebp/elk
+
+# A instalação esta pre configurada com:
+user: elastic
+password: changeme
+
+# Por padrão, o ambiente expõe as seguintes portas:
+5000: Logstash TCP input
+9200: Elasticsearch HTTP
+9300: Elasticsearch TCP transport
+5601: Kibana
 ```
 
 
@@ -35,6 +48,7 @@ sudo docker run -p 5601:5601 -p 9200:9200 -p 5044:5044 -it \
 docker-compose up -d
 docker-compose logs elk
 
+docker-compose restart kibana logstash
 
 # referencias de alguns comandos uteis
 Contêineres:  docker container rm -f $(docker container ls -a -q)   
@@ -76,10 +90,10 @@ curl http://192.168.0.44:9200/_cluster/health?pretty
 ## Com logstash usando do csv-aba...conf
 ```bash
 # ler um arquivo csv, colocando-o no elastic.
-cd ~/producao/_logscrstiano/logstash-7.9.1
+cd ~/producao/_logstakelk_cris/beats/logstash-7.9.1
 
-./bin/logstash -f ../src/confs/csv-aba_diario.conf
-./bin/logstash -f ../src/confs/csv-aba_expert.conf
+./bin/logstash -f ../../src/confs/csv-aba_diario.conf
+./bin/logstash -f ../../src/confs/csv-aba_expert.conf
 ```
 
 

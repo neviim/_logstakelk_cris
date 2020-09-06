@@ -1,0 +1,16 @@
+# Build with:
+# docker-compose build elk
+
+# Run with:
+# docker-compose up
+
+elk:
+  build: .
+  ports:
+    - "5601:5601"
+    - "9200:9200"
+    - "5044:5044"
+    
+  environment:
+    - ES_HEAP_SIZE=2g
+    - LS_HEAP_SIZE=1g
