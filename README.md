@@ -114,6 +114,22 @@ vim ../../data/aba_expert.csv
 ```
 
 
+## Usando modules Metricbeat
+```bash
+# https://www.elastic.co/pt/downloads/beats/metricbeat
+
+# cria o diretorio log e data
+./metricbeat 
+
+# carrega dashboard no elasticsearch
+./metricbeat setup -e
+
+./metricbeat modules enable docker
+
+./metricbeat -e -c metricbeat.yml
+```
+
+
 # Slave host
 ```bash
 # Em outro host, crie um arquivo denominado elasticsearch-slave.yml (digamos que esteja em ~/producao/elk), com o conteúdo
@@ -274,20 +290,6 @@ sudo filebeat modules list
 ## Usando modules Packetbeat
 ```bash
 sudo ./packetbeat -e -c packetbeat.yml
-```
-
-
-## Usando modules Metricbeat
-```bash
-# https://www.elastic.co/pt/downloads/beats/metricbeat
-
-# cria o diretorio log
-./metricbeat 
-
-# carrega dashboard no elasticsearch
-./metricbeat setup -e
-
-./metricbeat modules enable linux
 ```
 
 
