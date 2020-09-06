@@ -1,10 +1,11 @@
 # Utilizando docker-elk sebp/elk, sistema linux
-```bash
-# Passo a passo de como instalar o docker no sistema linux ubuntu 20.4 & windows 10
-# https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-20-04-pt
-# https://docs.docker.com/docker-for-windows/install/
 
-# dependencias do sistema
+### Passo a passo de como instalar o docker no sistema linux & windows
+[docker no sistema linux 20.4](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-20-04-pt)
+[docker no sistema Windows 10](https://docs.docker.com/docker-for-windows/install/)
+
+```bash
+# Ambiente linux
 sudo update
 sudo upgrade
 sudo apt install curl vim tree git wget
@@ -32,11 +33,12 @@ sudo docker run -p 5601:5601 -p 9200:9200 -p 5044:5044 -it \
 docker-compose up -d
 docker-compose logs elk
 
+
 # referencias de alguns comandos uteis
-#Contêineres:  docker container rm $(docker container ls -a -q)   
-#Imagens....:  docker image rm $(docker image ls -a -q)
-#Volumes....:  docker volume rm $(docker volume ls -q)     
-#Networks...:  docker network rm $(docker network ls -q)
+Contêineres:  docker container rm $(docker container ls -a -q)   
+Imagens....:  docker image rm $(docker image ls -a -q)
+Volumes....:  docker volume rm $(docker volume ls -q)     
+Networks...:  docker network rm $(docker network ls -q)
 ```
 
 
@@ -259,7 +261,7 @@ sudo ./packetbeat -e -c packetbeat.yml
 ## Usando modules Packetbeat
 ```bash
 # Cria pastas logs e baixa os deshboards
-cd packetbeat-7.9.0
+cd packetbeat-7.9.1
 
 chown -R root *
 ./packetbeat
