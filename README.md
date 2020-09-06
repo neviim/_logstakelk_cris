@@ -24,6 +24,9 @@ sudo sysctl -w vm.max_map_count=262144
 
 sudo docker pull sebp/elk
 
+# Inicializa o Server Master Elastic
+sudo docker-compose up elk -d
+
 # A instalação esta pre configurada com:
 user: elastic
 password: changeme
