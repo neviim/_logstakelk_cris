@@ -44,9 +44,6 @@ sudo docker run -p 5601:5601 -p 9200:9200 -p 5044:5044 -it \
 
 # OU
 
-# Builder
-docker-compose build elk
-
 #  Up, Down, Log
 docker-compose up elk
 docker-compose up elk -d
