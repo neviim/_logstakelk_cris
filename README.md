@@ -38,16 +38,21 @@ password: changeme
 
 ## Docker
 ```bash
-# container elk - sepb/elk
-
+# Container elk - sepb/elk
 sudo docker run -p 5601:5601 -p 9200:9200 -p 5044:5044 -it \
 -e ES_HEAP_SIZE="2g" -e LS_HEAP_SIZE="1g" --name elk sebp/elk
 
 # OU
 
+# Builder
+docker-compose build elk
+
+#  Up, Down, Log
 docker-compose up -d
+docker-compose down
 docker-compose logs elk
 
+# Restartar serviços
 docker-compose restart kibana logstash
 
 # referencias de alguns comandos uteis
