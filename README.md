@@ -25,7 +25,11 @@ sudo sysctl -w vm.max_map_count=262144
 sudo docker pull sebp/elk
 
 # Inicializa o Server Master Elastic
-sudo docker-compose up elk -d
+docker-compose up -d
+docker-compose logs elk
+
+# Browse chrome, opera, firefox, safari
+http://192.168.0.44:5601
 
 # A instalação esta pre configurada com:
 user: elastic
@@ -49,7 +53,7 @@ sudo docker run -p 5601:5601 -p 9200:9200 -p 5044:5044 -it \
 
 #  Up, Down, Log
 docker-compose up elk
-docker-compose up elk -d
+docker-compose up -d
 
 docker-compose down elk
 docker-compose logs elk
