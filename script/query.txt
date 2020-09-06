@@ -1,0 +1,50 @@
+// lista os index no elastic
+http://192.168.0.44:9200/_cat/indices?v
+
+
+//
+
+// todos os registros
+{
+  "query": { "match_all": {} }
+}
+
+
+// todos que c4 != "HistoryBase"
+{
+  "query": {
+    "bool": {
+        "must_not": [
+            { "match": { "c4": "HistoryBase" } }
+        ]
+    }
+  }
+}
+
+// c2 = 0 e c1 = LE 
+{
+  "query": {
+    "bool": {
+        "must": [
+            { "match": { "c2": "0" } },
+            { "match": { "c1": "LE"} }
+        ]
+    }
+  }
+}
+
+
+// c1 = JR e c2 != 1
+{
+  "query": {
+    "bool": {
+        "must": [
+          { "match": { "c1": "JR" } }
+        ],
+        "must_not": [
+          { "match": { "c2": "1"} }
+        ]
+    }
+  }
+}
+
