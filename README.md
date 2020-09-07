@@ -61,6 +61,10 @@ docker-compose logs elk
 # Restartar serviços
 docker-compose restart kibana logstash
 
+# acessar o prompt do container que esteja em execução.
+sudo docker exec -it <container-name> /bin/bash
+
+
 # referencias de alguns comandos uteis
 Contêineres:  docker container rm -f $(docker container ls -a -q)   
 Imagens....:  docker image rm $(docker image ls -a -q)
@@ -375,3 +379,5 @@ sudo sysctl -w vm.max_map_count=262144
 config sysctl
 vim /etc/sysctl.conf
 ```
+
+ERROR [publisher_pipeline_output] pipeline/output.go:154  Failed to connect to backoff(elasticsearch(http://192.168.0.44:9200)): Connection marked as failed because the onConnect callback failed: Metricbeat requires the default distribution of Elasticsearch. Please update to the default distribution of Elasticsearch for full access to all free features, or switch to the OSS distribution of Metricbeat.
